@@ -7,8 +7,9 @@ This script gets all the quotes from danstonchat, the french quote website.
 from bs4 import BeautifulSoup
 import urllib2
 import re
+import sys
 
-user_limit = int(raw_input("Please enter the limit for the quote scraper. >> "))
+user_limit = sys.argv[1]
 elements = []
 list_links = []
 liste_quote = []
