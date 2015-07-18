@@ -7,16 +7,15 @@ This script gets all the quotes from danstonchat, the french quote website.
 from bs4 import BeautifulSoup
 import urllib2
 import re
-import sys
 
-user_limit = sys.argv[1]
+# Main variables
 elements = []
 list_links = []
 liste_quote = []
 
 
 class DTCScrapper(object):
-    """docstring for DTCScrapper"""
+    """Class to get the quotes form danstonchat.fr"""
 
     # I get the web page with the quote.
     def get_web_page_content(self,url):
@@ -56,18 +55,3 @@ class DTCScrapper(object):
             return self.extract_quote_from_html(self.get_web_page_content(url),url)
         except:
             pass
-
-e = DTCScrapper()
-i = 1
-while i < user_limit:
-    url_dtc = "http://danstonchat.com/"+str(i)+".html"
-    i = i + 1
-
-    print("Quote n°"+ str((url_dtc.replace("http://danstonchat.com/","").replace(".html",""))))
-    print("==================")
-    try:
-        for a in e.main(url_dtc):
-            print(unicode(a))
-    except:
-        pass
-    print("==================")
