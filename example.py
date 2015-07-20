@@ -16,6 +16,15 @@ url_dtc = "http://danstonchat.com/"+str(user_limit)+".html"
 # Get the results
 result_from_scrapper =  e.main(url_dtc)
 
-# Print out each value
-for value in result_from_scrapper:
-    print(value)
+final_quote = ""
+
+iter = 0
+
+for a in result_from_scrapper:
+    if iter % 2 == 0 :
+        final_quote += a
+    else:
+        final_quote += a + "\n"
+    iter += 1
+
+print final_quote
